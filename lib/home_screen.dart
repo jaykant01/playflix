@@ -46,7 +46,22 @@ class _HomeScreenState extends State<HomeScreen> {
               Text('Trending Movies', style: GoogleFonts.aBeeZee(fontSize: 25),
               ),
               const SizedBox(height: 32,),
-              const TrendingSlider(),
+              SizedBox(
+                child: FutureBuilder(
+                  future: trendingMovies,
+                  builder: (context, snapshot) {
+                   if(snapshot.hasError){
+                     return Center(
+                       child: Text(snapshot.error.toString()),
+                     );
+                   }else if(snapshot.hasData){
+                     return TrendingSlider(snapshot: snapshot,);
+                   }else{
+                     return const Center(child: CircularProgressIndicator());
+                   }
+                  },
+                ),
+              ),
               const SizedBox(height: 32),
               Text(
                 'Top Rated Movies',
