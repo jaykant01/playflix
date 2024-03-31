@@ -48,11 +48,81 @@ class DetailsScreen extends StatelessWidget {
               child: Image.network(
                 '${Constants.imagePath}${movie.backDropPath}',
                 filterQuality: FilterQuality.high,
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
               ),
             ),
           ),
           ),
+         SliverToBoxAdapter(
+          child: Padding(
+              padding: const EdgeInsets.all(12),
+            child: Column(
+              children: [
+              Text(
+                  'Overview',
+                  style: GoogleFonts.openSans(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w800,
+                  ),
+              ),
+               const SizedBox(height: 16),
+                Text(movie.overview, style: GoogleFonts.roboto(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w400,
+                ),
+                  //textAlign: TextAlign.justify,
+                ),
+                const SizedBox(height: 16),
+                SizedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(children: [
+                        Text('Release date: ', style: GoogleFonts.roboto(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          movie.releaseDate,
+                          style: GoogleFonts.roboto(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],),
+                    ),
+                    Container( padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(10),
+                    ),
+                      child: Row(children: [
+                        Text('Rating: ', style: GoogleFonts.roboto(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        ),
+                        const Icon(Icons.star, color: Colors.amber,),
+                        Text('${movie.voteAverage.toStringAsFixed(1)}/10'
+                          ),
+                      ],
+                      ),
+                    )
+                  ],
+    ),
+                )
+            ],
+            ),
+          )
+
+        )
       ],
     ),
     );
