@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
       title: 'Playflix',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: Colours.scaffoldBgColor,
-        useMaterial3: true,
       ),
       home: const HomeScreen(),
     );
