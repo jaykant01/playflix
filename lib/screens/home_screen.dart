@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:playflix/api/api.dart';
 import 'package:playflix/widgets/movies_slider.dart';
 import 'package:playflix/widgets/trending_slider.dart';
-import 'models/movie.dart';
+import '../models/movie.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
